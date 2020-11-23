@@ -1,0 +1,34 @@
+<template id="template">
+  <link rel="stylesheet" type="text/css" href="navbc.css">
+<div class="w3-container">
+	<nav>
+		<div class="hamburger">
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+		</div>
+		<ul class="nav-links">
+			<li><a href="index.html" id="onlink"> HOME </a></li>
+			<li><a href="Training.html"> TRAINING </a></li>
+			<li><a href="News.html"> NEWS </a></li>
+			<li><a href="about us.html"> About US </a></li>
+		</ul>
+	</nav>
+	<script src="nav.js"></script>
+</div>
+</template>
+<script>
+
+  var XComponent = document.registerElement('x-component', {
+    prototype: Object.create(HTMLElement.prototype, {
+      createdCallback: {
+        value: function() {
+          var root = this.createShadowRoot();
+          var template = document.querySelector('#template');
+          var clone = document.importNode(template.content, true);
+          root.appendChild(clone);
+        }
+      }
+    })
+  });
+</script>
